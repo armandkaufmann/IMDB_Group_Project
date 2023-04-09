@@ -20,9 +20,44 @@ namespace IMDB_Group_PRoject
     /// </summary>
     public partial class MainWindow : Window
     {
+        public Pages.ActorsPage actorsPage { get; set; }
+        public Pages.CategoriesPage categoriesPage { get; set; }
+        public Pages.DirectorsPage directorsPage { get; set; }
+        public Pages.MoviesPage moviesPage { get; set; }
         public MainWindow()
         {
             InitializeComponent();
+            actorsPage= new Pages.ActorsPage();
+            categoriesPage= new Pages.CategoriesPage();
+            directorsPage= new Pages.DirectorsPage();
+            moviesPage= new Pages.MoviesPage();
+
+            mainFrame.NavigationService.Navigate(moviesPage);
+        }
+
+        private void Exit_Click(object sender, RoutedEventArgs e)
+        {
+            this.Close();
+        }
+
+        private void Movies_Page_Click(object sender, RoutedEventArgs e)
+        {
+            mainFrame.NavigationService.Navigate(moviesPage);
+        }
+
+        private void Categories_Page_Click(object sender, RoutedEventArgs e)
+        {
+            mainFrame.NavigationService.Navigate(categoriesPage);
+        }
+
+        private void Actors_Page_Click(object sender, RoutedEventArgs e)
+        {
+            mainFrame.NavigationService.Navigate(actorsPage);
+        }
+
+        private void Directors_Page_Click(object sender, RoutedEventArgs e)
+        {
+            mainFrame.NavigationService.Navigate(directorsPage);
         }
     }
 }

@@ -6,7 +6,46 @@
         xmlns:local="clr-namespace:IMDB_Group_PRoject"
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
-    <Grid>
 
-    </Grid>
+    <Window.Resources>
+        <ResourceDictionary>
+            <BitmapImage x:Key="movies" UriSource="/Images/placeholder.png"></BitmapImage>
+            <BitmapImage x:Key="categories" UriSource="/Images/placeholder.png"></BitmapImage>
+            <BitmapImage x:Key="actors" UriSource="/Images/placeholder.png"></BitmapImage>
+            <BitmapImage x:Key="directors" UriSource="/Images/placeholder.png"></BitmapImage>
+        </ResourceDictionary>
+    </Window.Resources>
+    
+    <DockPanel>
+        <Menu DockPanel.Dock="Top">
+            <MenuItem Header="_File">
+                <MenuItem Header="_Exit" Click="Exit_Click"></MenuItem>
+            </MenuItem>
+            <MenuItem Header="_Pages">
+                <MenuItem Header="_Movies" Click="Movies_Page_Click"></MenuItem>
+                <MenuItem Header="_Categories" Click="Categories_Page_Click"></MenuItem>
+                <MenuItem Header="Actors" Click="Actors_Page_Click"></MenuItem>
+                <MenuItem Header="_Directors" Click="Directors_Page_Click"></MenuItem>
+            </MenuItem>
+        </Menu>
+        <ToolBar DockPanel.Dock="Top" HorizontalAlignment="Center" Width="Auto">
+            <StackPanel Orientation="Horizontal" Height="70" Width="Auto">
+                <Button x:Name="MoviesButton" ToolTip="View All Movies" Click="Movies_Page_Click">
+                    <Image Source="{StaticResource movies}"></Image>
+                </Button>
+                <Button x:Name="CategoriesButton" ToolTip="View All Movie Categories" Click="Categories_Page_Click">
+                    <Image Source="{StaticResource categories}"></Image>
+                </Button>
+                <Button x:Name="ActorsButton" ToolTip="View All Actors" Click="Actors_Page_Click">
+                    <Image Source="{StaticResource actors}"></Image>
+                </Button>
+                <Button x:Name="DirectorsButton" ToolTip="View All Directors" Click="Directors_Page_Click">
+                    <Image Source="{StaticResource directors}"></Image>
+                </Button>
+            </StackPanel>
+        </ToolBar>
+        <Frame x:Name="mainFrame" Width="Auto" Height="Auto" NavigationUIVisibility="Hidden">
+            
+        </Frame>
+    </DockPanel>
 </Window>
