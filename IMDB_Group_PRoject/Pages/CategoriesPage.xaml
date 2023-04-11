@@ -6,7 +6,7 @@
       xmlns:local="clr-namespace:IMDB_Group_PRoject.Pages"
       mc:Ignorable="d" 
       d:DesignHeight="450" d:DesignWidth="800"
-      Title="CategoriesPage">
+      Title="CategoriesPage" Loaded="Page_Loaded">
 
     <Page.Resources>
         <BitmapImage x:Key="search" UriSource="/Images/placeholder.png"></BitmapImage>

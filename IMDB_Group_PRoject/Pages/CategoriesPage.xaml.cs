@@ -28,7 +28,7 @@ namespace IMDB_Group_PRoject.Pages
         {
             InitializeComponent();
 
-            _context.Titles.Load();
+           //_context.Titles.Load();
 
 
         }
@@ -46,6 +46,11 @@ namespace IMDB_Group_PRoject.Pages
                 };
 
             categoriesListView.ItemsSource = query.ToList();
+        }
+
+        private void Page_Loaded(object sender, RoutedEventArgs e)
+        {
+
         }
     }
 }
