@@ -17,19 +17,35 @@
             <TextBlock Text="Movie Categories" Style="{StaticResource frameTitle}" Width="325"></TextBlock>
             <Label Content="Search:"/>
             <TextBox x:Name="txtSearch" Width="300" Style="{StaticResource searchBar}"/>
-            <Button x:Name="SearchButton" ToolTip="Search Categories" Click="SearchButton_Click">
+            <Button x:Name="SearchButton" ToolTip="Search Categories" Click="SearchButton_Click" Height="28">
                 <Image Source="{StaticResource search}"/>
             </Button>
         </StackPanel>
         <ListView x:Name="categoriesListView"
                   ScrollViewer.CanContentScroll="True"
                   ScrollViewer.VerticalScrollBarVisibility="Visible"
-                  Width="800" Height="405">
+                  Width="750" Height="405">
             <ListView.ItemTemplate>
                 <DataTemplate>
-                    <StackPanel Orientation="Vertical">
-                        <TextBlock></TextBlock>
+                    <StackPanel Orientation="Horizontal">
                         
+                        <Expander Header="{Binding Name}" Width="575">
+                            <ListView ItemsSource="{Binding Titles}"
+                                ScrollViewer.CanContentScroll="True"
+                                ScrollViewer.VerticalScrollBarVisibility="Visible"
+                                      Height="300">
+                                <ListView.ItemTemplate>
+                                    <DataTemplate DataType="local:Titles">
+                                        <Border Style="{StaticResource catMovie}">
+                                            <StackPanel Orientation="Horizontal" >
+                                                <TextBlock Text="{Binding PrimaryTitle}" Style="{StaticResource catMovieRow}" Width="450"></TextBlock>
+                                                <TextBlock Text="{Binding StartYear}" Style="{StaticResource catMovieRow}" Width="75"></TextBlock>
+                                            </StackPanel>
+                                        </Border>
+                                    </DataTemplate>
+                                </ListView.ItemTemplate>
+                            </ListView>
+                        </Expander>
                     </StackPanel>
                 </DataTemplate>
             </ListView.ItemTemplate>
