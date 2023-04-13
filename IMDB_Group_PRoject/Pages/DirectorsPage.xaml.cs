@@ -1,7 +1,9 @@
 ﻿using IMDB.Data;
+using IMDB.Models;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -22,40 +24,28 @@ namespace IMDB_Group_PRoject.Pages
     /// </summary>
     public partial class DirectorsPage : Page
     {
-        private ImdbProjectContext _context = new ImdbProjectContext();
-        private CollectionViewSource directorsViewSource;
+        private readonly ImdbProjectContext _context = new ImdbProjectContext();
 
         public DirectorsPage()
         {
             InitializeComponent();
-            directorsViewSource = (CollectionViewSource)FindResource(nameof(directorsViewSource));
-
+  
         }
 
-        private async void SearchButton_Click(object sender, RoutedEventArgs e)
+        private void SearchButton_Click(object sender, RoutedEventArgs e)
         {
-            using (var context = new ImdbProjectContext())
-            {
-                var searchTerm = txtSearch.Text.Trim();
-                var directors = await context.Names
-                    .Where(name => name.PrimaryProfession.Contains("director"))
-                    .Where(name => string.IsNullOrEmpty(searchTerm) || name.PrimaryName.Contains(searchTerm))
-                    .ToListAsync();
-                directorsListView.ItemsSource = directors;
-            }
+            string searchTerm = txtSearch.Text;
+
+            var query =
+                from Name in _context.Names
+                where Name.PrimaryName.Contains(searchTerm) && Name.PrimaryProfession.Contains("director")
+                select Name;
+
+            var directorViewSource = (CollectionViewSource)FindResource("directorViewSource");
+            directorsListView.ItemsSource = new ObservableCollection<Name>(query.ToList());
         }
 
-        private async void Page_Loaded(object sender, RoutedEventArgs e)
-        {
-            using (var context = new ImdbProjectContext())
-            {
-                await context.Names.LoadAsync();
-                var directors = context.Names.Local
-                    .Where(name => name.PrimaryProfession.Contains("director"))
-                    .ToList();
-                directorsListView.ItemsSource = directors;
-            }
-        }
+  
 
     }
 }

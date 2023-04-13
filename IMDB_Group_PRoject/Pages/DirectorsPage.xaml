@@ -6,10 +6,10 @@
       xmlns:local="clr-namespace:IMDB_Group_PRoject.Pages"
       mc:Ignorable="d" 
       d:DesignHeight="450" d:DesignWidth="800"
-      Title="DirectorsPage" Loaded="Page_Loaded">
+      Title="DirectorsPage">
 
     <Page.Resources>
-        <CollectionViewSource x:Key="directorsViewSource"></CollectionViewSource>
+        <CollectionViewSource x:Key="directorViewSource"></CollectionViewSource>
         <BitmapImage x:Key="search" UriSource="/Images/placeholder.png"></BitmapImage>
     </Page.Resources>
 
@@ -27,13 +27,23 @@
           ScrollViewer.VerticalScrollBarVisibility="Visible"
           Width="800" Height="405">
             <ListView.ItemTemplate>
-                <DataTemplate>
+                <DataTemplate DataType="local:Director">
                     <Expander Header="{Binding PrimaryName}">
-                        <TextBlock Text="{Binding BirthYear, StringFormat='Birth Year: {0}'}" Margin="10" />
+                        <Grid>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="Auto"/>
+                            </Grid.RowDefinitions>
+                            <TextBlock Text="{Binding PrimaryProfession, StringFormat='Profession: {0}'}" Grid.Row="0" Margin="10" />
+                            <TextBlock Text="{Binding BirthYear, StringFormat='Birth Year: {0}'}" Grid.Row="1" Margin="10" />
+                            <TextBlock Text="{Binding DeathYear, StringFormat='Death Year: {0}'}" Grid.Row="2" Margin="10" />
+                        </Grid>
                     </Expander>
                 </DataTemplate>
             </ListView.ItemTemplate>
         </ListView>
+
 
     </StackPanel>
 </Page>

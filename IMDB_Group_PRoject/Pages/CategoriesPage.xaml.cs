@@ -28,7 +28,8 @@ namespace IMDB_Group_PRoject.Pages
         {
             InitializeComponent();
 
-           //_context.Titles.Load();
+            _context.Genres.Load();
+            _context.Titles.Load();
 
 
         }
@@ -36,21 +37,18 @@ namespace IMDB_Group_PRoject.Pages
         private void SearchButton_Click(object sender, RoutedEventArgs e)
         {
             var query =
-                from title in _context.Titles
-                where title.PrimaryTitle.Contains(txtSearch.Text)
-                group title by title.Genres into newGroup
+                from gen in _context.Genres
+                where gen.Name.Contains(txtSearch.Text)
                 select new
                 {
-                    Index = newGroup.Key
-                    
+                    Name = gen.Name,
+                    Titles = gen.Titles.ToList(),
+
+
+
                 };
 
             categoriesListView.ItemsSource = query.ToList();
-        }
-
-        private void Page_Loaded(object sender, RoutedEventArgs e)
-        {
-
         }
     }
 }
