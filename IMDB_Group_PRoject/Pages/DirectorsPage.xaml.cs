@@ -1,5 +1,9 @@
-﻿using System;
+﻿using IMDB.Data;
+using IMDB.Models;
+using Microsoft.EntityFrameworkCore;
+using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -20,9 +24,28 @@ namespace IMDB_Group_PRoject.Pages
     /// </summary>
     public partial class DirectorsPage : Page
     {
+        private readonly ImdbProjectContext _context = new ImdbProjectContext();
+
         public DirectorsPage()
         {
             InitializeComponent();
+  
         }
+
+        private void SearchButton_Click(object sender, RoutedEventArgs e)
+        {
+            string searchTerm = txtSearch.Text;
+
+            var query =
+                from Name in _context.Names
+                where Name.PrimaryName.Contains(searchTerm) && Name.PrimaryProfession.Contains("director")
+                select Name;
+
+            var directorViewSource = (CollectionViewSource)FindResource("directorViewSource");
+            directorsListView.ItemsSource = new ObservableCollection<Name>(query.ToList());
+        }
+
+  
+
     }
 }

@@ -28,7 +28,6 @@
             <ListView.ItemTemplate>
                 <DataTemplate>
                     <StackPanel Orientation="Horizontal">
-                        
                         <Expander Header="{Binding Name}" Width="575">
                             <ListView ItemsSource="{Binding Titles}"
                                 ScrollViewer.CanContentScroll="True"
@@ -49,7 +48,7 @@
                     </StackPanel>
                 </DataTemplate>
             </ListView.ItemTemplate>
-                        
+
         </ListView>
     </StackPanel>
 </Page>
