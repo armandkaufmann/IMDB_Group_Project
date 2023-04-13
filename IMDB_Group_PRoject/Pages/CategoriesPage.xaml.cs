@@ -44,8 +44,6 @@ namespace IMDB_Group_PRoject.Pages
                     Name = gen.Name,
                     Titles = gen.Titles.ToList(),
 
-
-
                 };
 
             categoriesListView.ItemsSource = query.ToList();

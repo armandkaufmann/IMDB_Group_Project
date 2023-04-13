@@ -17,7 +17,7 @@
             <TextBlock Text="Movie Categories" Style="{StaticResource frameTitle}" Width="325"></TextBlock>
             <Label Content="Search:"/>
             <TextBox x:Name="txtSearch" Width="300" Style="{StaticResource searchBar}"/>
-            <Button x:Name="SearchButton" ToolTip="Search Categories" Click="SearchButton_Click">
+            <Button x:Name="SearchButton" ToolTip="Search Categories" Click="SearchButton_Click" Height="28">
                 <Image Source="{StaticResource search}"/>
             </Button>
         </StackPanel>
@@ -28,7 +28,6 @@
             <ListView.ItemTemplate>
                 <DataTemplate>
                     <StackPanel Orientation="Horizontal">
-
                         <Expander Header="{Binding Name}" Width="575">
                             <ListView ItemsSource="{Binding Titles}"
                                 ScrollViewer.CanContentScroll="True"
