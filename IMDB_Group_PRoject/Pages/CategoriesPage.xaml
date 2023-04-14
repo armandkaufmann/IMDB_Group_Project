@@ -9,7 +9,7 @@
       Title="CategoriesPage">
 
     <Page.Resources>
-        <BitmapImage x:Key="search" UriSource="/Images/placeholder.png"></BitmapImage>
+        <BitmapImage x:Key="search" UriSource="/Images/search.png"></BitmapImage>
     </Page.Resources>
 
     <StackPanel>
