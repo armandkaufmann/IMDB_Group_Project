@@ -9,10 +9,15 @@
 
     <Window.Resources>
         <ResourceDictionary>
-            <BitmapImage x:Key="movies" UriSource="/Images/placeholder.png"></BitmapImage>
-            <BitmapImage x:Key="categories" UriSource="/Images/placeholder.png"></BitmapImage>
-            <BitmapImage x:Key="actors" UriSource="/Images/placeholder.png"></BitmapImage>
-            <BitmapImage x:Key="directors" UriSource="/Images/placeholder.png"></BitmapImage>
+            <BitmapImage x:Key="movies" UriSource="/Images/movie.png"></BitmapImage>
+            <BitmapImage x:Key="categories" UriSource="/Images/category.png"></BitmapImage>
+            <BitmapImage x:Key="actors" UriSource="/Images/actor.png"></BitmapImage>
+            <BitmapImage x:Key="directors" UriSource="/Images/director.png"></BitmapImage>
+
+            <BitmapImage x:Key="movies_nav" UriSource="/Images/movie_nav.png"></BitmapImage>
+            <BitmapImage x:Key="categories_nav" UriSource="/Images/category_nav.png"></BitmapImage>
+            <BitmapImage x:Key="actors_nav" UriSource="/Images/actor_nav.png"></BitmapImage>
+            <BitmapImage x:Key="directors_nav" UriSource="/Images/director_nav.png"></BitmapImage>
         </ResourceDictionary>
     </Window.Resources>
     
@@ -22,28 +27,45 @@
                 <MenuItem Header="_Exit" Click="Exit_Click"></MenuItem>
             </MenuItem>
             <MenuItem Header="_Pages">
-                <MenuItem Header="_Movies" Click="Movies_Page_Click"></MenuItem>
-                <MenuItem Header="_Categories" Click="Categories_Page_Click"></MenuItem>
-                <MenuItem Header="Actors" Click="Actors_Page_Click"></MenuItem>
-                <MenuItem Header="_Directors" Click="Directors_Page_Click"></MenuItem>
+                <MenuItem Header="_Movies" Click="Movies_Page_Click">
+                    <MenuItem.Icon>
+                        <Image Source="{StaticResource movies}"></Image>
+                    </MenuItem.Icon>
+                </MenuItem>
+                <MenuItem Header="_Categories" Click="Categories_Page_Click">
+                    <MenuItem.Icon>
+                        <Image Source="{StaticResource categories}"></Image>
+                    </MenuItem.Icon>
+                </MenuItem>
+                <MenuItem Header="_Actors" Click="Actors_Page_Click">
+                    <MenuItem.Icon>
+                        <Image Source="{StaticResource actors}"></Image>
+                    </MenuItem.Icon>
+                </MenuItem>
+                <MenuItem Header="_Directors" Click="Directors_Page_Click">
+                    <MenuItem.Icon>
+                        <Image Source="{StaticResource directors}"></Image>
+                    </MenuItem.Icon>
+                </MenuItem>
             </MenuItem>
         </Menu>
-        <ToolBar DockPanel.Dock="Top" HorizontalAlignment="Center" Width="Auto">
-            <StackPanel Orientation="Horizontal" Height="70" Width="Auto">
-                <Button x:Name="MoviesButton" ToolTip="View All Movies" Click="Movies_Page_Click">
-                    <Image Source="{StaticResource movies}"></Image>
-                </Button>
-                <Button x:Name="CategoriesButton" ToolTip="View All Movie Categories" Click="Categories_Page_Click">
-                    <Image Source="{StaticResource categories}"></Image>
-                </Button>
-                <Button x:Name="ActorsButton" ToolTip="View All Actors" Click="Actors_Page_Click">
-                    <Image Source="{StaticResource actors}"></Image>
-                </Button>
-                <Button x:Name="DirectorsButton" ToolTip="View All Directors" Click="Directors_Page_Click">
-                    <Image Source="{StaticResource directors}"></Image>
-                </Button>
-            </StackPanel>
-        </ToolBar>
+        
+        <StackPanel DockPanel.Dock="Top" Orientation="Horizontal" Height="70" Width="auto" HorizontalAlignment="Center" Style="{StaticResource navbar}">
+            
+            <Button x:Name="MoviesButton" ToolTip="View All Movies" Click="Movies_Page_Click" Style="{StaticResource navButton}">
+                <Image Source="{StaticResource movies_nav}"></Image>
+            </Button>
+            <Button x:Name="CategoriesButton" ToolTip="View All Movie Categories" Click="Categories_Page_Click"  Style="{StaticResource navButton}">
+                <Image Source="{StaticResource categories_nav}"></Image>
+            </Button>
+            <Button x:Name="ActorsButton" ToolTip="View All Actors" Click="Actors_Page_Click" Style="{StaticResource navButton}">
+                <Image Source="{StaticResource actors_nav}"></Image>
+            </Button>
+            <Button x:Name="DirectorsButton" ToolTip="View All Directors" Click="Directors_Page_Click" Style="{StaticResource navButton}">
+                <Image Source="{StaticResource directors_nav}"></Image>
+            </Button>
+        </StackPanel>
+        
         <Frame x:Name="mainFrame" Width="Auto" Height="Auto" NavigationUIVisibility="Hidden">
             
         </Frame>

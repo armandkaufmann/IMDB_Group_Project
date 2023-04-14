@@ -10,7 +10,7 @@
 
     <Page.Resources>
         <CollectionViewSource x:Key="directorViewSource"></CollectionViewSource>
-        <BitmapImage x:Key="search" UriSource="/Images/placeholder.png"></BitmapImage>
+        <BitmapImage x:Key="search" UriSource="/Images/search.png"></BitmapImage>
     </Page.Resources>
 
     <StackPanel>
@@ -18,14 +18,14 @@
             <TextBlock Text="Movie Directors" Style="{StaticResource frameTitle}" Width="325"></TextBlock>
             <Label Content="Search:"/>
             <TextBox x:Name="txtSearch" Width="300" Style="{StaticResource searchBar}"/>
-            <Button x:Name="SearchButton" ToolTip="Search Directors" Click="SearchButton_Click">
+            <Button x:Name="SearchButton" ToolTip="Search Directors" Click="SearchButton_Click" Height="28">
                 <Image Source="{StaticResource search}"/>
             </Button>
         </StackPanel>
         <ListView x:Name="directorsListView"
           ScrollViewer.CanContentScroll="True"
           ScrollViewer.VerticalScrollBarVisibility="Visible"
-          Width="800" Height="405">
+          Width="750" Height="405">
             <ListView.ItemTemplate>
                 <DataTemplate DataType="local:Director">
                     <Expander Header="{Binding PrimaryName}">

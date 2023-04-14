@@ -8,7 +8,16 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="images\actor.png" />
+    <None Remove="images\actor_nav.png" />
+    <None Remove="images\category.png" />
+    <None Remove="images\category_nav.png" />
+    <None Remove="images\director.png" />
+    <None Remove="images\director_nav.png" />
+    <None Remove="images\movie.png" />
+    <None Remove="images\movie_nav.png" />
     <None Remove="Images\placeholder.png" />
+    <None Remove="images\search.png" />
   </ItemGroup>
 
   <ItemGroup>
@@ -25,7 +34,34 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Resource Include="images\actor.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="images\actor_nav.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="images\category.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="images\category_nav.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="images\director.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="images\director_nav.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="images\movie.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="images\movie_nav.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
     <Resource Include="Images\placeholder.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="images\search.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Resource>
   </ItemGroup>
