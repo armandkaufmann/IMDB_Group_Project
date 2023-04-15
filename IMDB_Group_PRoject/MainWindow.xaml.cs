@@ -30,7 +30,7 @@ namespace IMDB_Group_PRoject
             actorsPage= new Pages.ActorsPage();
             categoriesPage= new Pages.CategoriesPage();
             directorsPage= new Pages.DirectorsPage();
-            moviesPage= new Pages.MoviesPage();
+            moviesPage = new Pages.MoviesPage();
 
             mainFrame.NavigationService.Navigate(moviesPage);
         }
