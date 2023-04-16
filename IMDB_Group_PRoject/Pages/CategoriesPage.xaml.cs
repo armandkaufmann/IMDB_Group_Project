@@ -31,22 +31,29 @@ namespace IMDB_Group_PRoject.Pages
             _context.Genres.Load();
             _context.Titles.Load();
 
-
+            RunQuery("");
         }
 
-        private void SearchButton_Click(object sender, RoutedEventArgs e)
+        public void RunQuery(string text)
         {
             var query =
                 from gen in _context.Genres
                 where gen.Name.Contains(txtSearch.Text)
+                orderby gen.Name ascending
                 select new
                 {
                     Name = gen.Name,
-                    Titles = gen.Titles.ToList(),
-
+                    Titles = (from m in gen.Titles
+                              orderby m.StartYear descending, m.PrimaryTitle ascending
+                              select m).ToList()
                 };
 
             categoriesListView.ItemsSource = query.ToList();
+        }
+
+        private void SearchButton_Click(object sender, RoutedEventArgs e)
+        {
+            RunQuery(txtSearch.Text);
         }
     }
 }

@@ -8,7 +8,31 @@
       d:DesignHeight="450" d:DesignWidth="800"
       Title="ActorsPage">
 
-    <Grid>
-        
-    </Grid>
+    <Page.Resources>
+        <BitmapImage x:Key="search" UriSource="/Images/search.png"></BitmapImage>
+    </Page.Resources>
+    
+    <StackPanel>
+        <StackPanel Orientation="Horizontal" Height="45">
+            <TextBlock Text="Movie Actors" Style="{StaticResource frameTitle}" Width="325"></TextBlock>
+            <Label Content="Search:"/>
+            <TextBox x:Name="txtSearch" Width="300" Style="{StaticResource searchBar}"/>
+            <Button x:Name="SearchButton" ToolTip="Search Directors" Click="SearchButton_Click" Height="28">
+                <Image Source="{StaticResource search}"/>
+            </Button>
+        </StackPanel>
+        <ListView x:Name="actorsListView"
+          ScrollViewer.CanContentScroll="True"
+          ScrollViewer.VerticalScrollBarVisibility="Visible"
+          Width="750" Height="405">
+            <ListView.ItemTemplate>
+                <DataTemplate DataType="local:Name">
+                    <StackPanel Orientation="Horizontal">
+                        <TextBlock Text="{Binding name}" Width="300"></TextBlock>
+                        <TextBlock Text="{Binding years}"></TextBlock>
+                    </StackPanel>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+    </StackPanel>
 </Page>

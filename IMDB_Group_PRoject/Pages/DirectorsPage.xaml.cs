@@ -29,12 +29,13 @@ namespace IMDB_Group_PRoject.Pages
         public DirectorsPage()
         {
             InitializeComponent();
-  
+
+            RunQuery("");
         }
 
-        private void SearchButton_Click(object sender, RoutedEventArgs e)
+        public void RunQuery(string text)
         {
-            string searchTerm = txtSearch.Text;
+            string searchTerm = text;
 
             var query =
                 from Name in _context.Names
@@ -43,6 +44,11 @@ namespace IMDB_Group_PRoject.Pages
 
             var directorViewSource = (CollectionViewSource)FindResource("directorViewSource");
             directorsListView.ItemsSource = new ObservableCollection<Name>(query.ToList());
+        }
+
+        private void SearchButton_Click(object sender, RoutedEventArgs e)
+        {
+            RunQuery(txtSearch.Text);
         }
 
   
