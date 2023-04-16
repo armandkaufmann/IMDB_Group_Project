@@ -24,6 +24,7 @@ namespace IMDB_Group_PRoject
         public Pages.CategoriesPage categoriesPage { get; set; }
         public Pages.DirectorsPage directorsPage { get; set; }
         public Pages.MoviesPage moviesPage { get; set; }
+        public Pages.HomePage homePage { get; set; }
         public MainWindow()
         {
             InitializeComponent();
@@ -31,8 +32,9 @@ namespace IMDB_Group_PRoject
             categoriesPage= new Pages.CategoriesPage();
             directorsPage= new Pages.DirectorsPage();
             moviesPage = new Pages.MoviesPage();
+            homePage= new Pages.HomePage();
 
-            mainFrame.NavigationService.Navigate(moviesPage);
+            mainFrame.NavigationService.Navigate(homePage);
         }
 
         private void Exit_Click(object sender, RoutedEventArgs e)
@@ -58,6 +60,11 @@ namespace IMDB_Group_PRoject
         private void Directors_Page_Click(object sender, RoutedEventArgs e)
         {
             mainFrame.NavigationService.Navigate(directorsPage);
+        }
+
+        private void HomeButton_Click(object sender, RoutedEventArgs e)
+        {
+            mainFrame.NavigationService.Navigate(homePage);
         }
     }
 }
