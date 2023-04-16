@@ -62,7 +62,7 @@ namespace IMDB_Group_PRoject
             mainFrame.NavigationService.Navigate(directorsPage);
         }
 
-        private void HomeButton_Click(object sender, RoutedEventArgs e)
+        private void Home_Page_Click(object sender, RoutedEventArgs e)
         {
             mainFrame.NavigationService.Navigate(homePage);
         }

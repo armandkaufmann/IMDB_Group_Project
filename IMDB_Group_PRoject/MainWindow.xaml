@@ -29,7 +29,7 @@
                 <MenuItem Header="_Exit" Click="Exit_Click"></MenuItem>
             </MenuItem>
             <MenuItem Header="_Pages">
-                <MenuItem Header="_Home" Click="Movies_Page_Click">
+                <MenuItem Header="_Home" Click="Home_Page_Click">
                     <MenuItem.Icon>
                         <Image Source="{StaticResource home}"></Image>
                     </MenuItem.Icon>
@@ -59,7 +59,7 @@
         
         <StackPanel DockPanel.Dock="Top" Orientation="Horizontal" Height="70" Width="auto" HorizontalAlignment="Center" Style="{StaticResource navbar}">
 
-            <Button x:Name="HomeButton" ToolTip="View Home Page" Click="HomeButton_Click" Style="{StaticResource navButton}">
+            <Button x:Name="HomeButton" ToolTip="View Home Page" Click="Home_Page_Click" Style="{StaticResource navButton}">
                 <Image Source="{StaticResource home_nav}"></Image>
             </Button>
             <Button x:Name="MoviesButton" ToolTip="View All Movies" Click="Movies_Page_Click" Style="{StaticResource navButton}">
