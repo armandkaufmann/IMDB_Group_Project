@@ -26,6 +26,7 @@ namespace IMDB_Group_PRoject.Pages
 
         public ActorsPage()
         {
+            
             InitializeComponent();
             _context.Genres.Load();
             _context.Titles.Load();
